@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postbook</title>
+    <link rel="stylesheet" href="./postStyle.css">
+</head>
+<body onload="checkLoggedInUser(); onload= showLoggedUsername()">
+    <div class="header">
+        <h1>Hello, <span id="logged-username">username</span> 
+        </h1>
+        <button onClick="logOut()" class="logoutBtn">Logout</button>
+    </div>
+    <section id="add-post-container">
+       <article>
+        <h2>Add new post</h2> 
+
+        <div>
+            <textarea name="" 
+            id="newPost-text" 
+            cols="50" 
+            rows="5"
+            placeholder="Add post text"
+            ></textarea>
+        </div>
+        
+        <div>
+            <input type="text" id="newPost-image" placeholder="Add post Image URL">
+        </div>
+            
+        
+            <div>
+                <button onclick="handleAddNewPost()" class="addPost-btn">POST</button>
+            </div>
+
+        
+
+       </article>
+    </section>
+   
+
+    <section id="post-container">
+
+        <!-- post -->
+        <div class="post">
+          <div class="post-header">
+            <div class="post-user-image">
+                <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="post-user-image">
+            </div>
+            <div class="post-username-time">
+                <p class="post-username">username</p>
+                <div class="posted-time">
+                    <span>13</span>
+                    <span>hours ago</span>
+
+                </div>
+
+            </div>
+          </div> 
+          
+         <div class="post-text">
+            <p class="post-text-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam eos possimus accusantium dolorum unde? Necessitatibus officia nostrum placeat harum doloremque?               
+            </p>
+         </div> 
+         <div class="post-image">
+            <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="post-image">
+         </div>
+
+        <!-- comments under a single post --> 
+         <div class="comments-holder">
+            <div class="comment">
+                <div class="comment-user-image">
+                    <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="comment-user-image">
+                </div>
+                <div class="comment-text-container">
+                  <h4>commented Username</h4>   
+                  <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, ratione?</p>
+                </div>
+
+            </div>
+            <div class="comment">
+                <div class="comment-user-image">
+                    <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="comment-user-image">
+                </div>
+                <div class="comment-text-container">
+                  <h4>commented Username</h4>   
+                  <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, ratione?</p>
+                </div>
+
+            </div>
+            <div class="comment">
+                <div class="comment-user-image">
+                    <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="comment-user-image">
+                </div>
+                <div class="comment-text-container">
+                  <h4>commented Username</h4>   
+                  <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, ratione?</p>
+                </div>
+
+            </div>
+
+
+         </div>
+        <!-- new comment input field --> 
+         <div class="postComment-holder">
+            <div class="post-comment-input-field-holder">
+                <input 
+                type="text" 
+                placeholder="post your comment" 
+                class="postComment-input-field" 
+                id="postComment-input-for-postId1"
+                />
+            </div>
+            <div class="comment-btn-holder">
+                <button id="comment-btn" class="postComment-btn">comment</button>
+            </div>
+         </div>
+
+        </div> 
+        <!-- post -->
+        <div class="post">
+            <div class="post-header">
+              <div class="post-user-image">
+                  <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="post-user-image">
+              </div>
+              <div class="post-username-time">
+                  <p class="post-username">username</p>
+                  <div class="posted-time">
+                      <span>13</span>
+                      <span>hours ago</span>
+  
+                  </div>
+  
+              </div>
+            </div> 
+            
+           <div class="post-text">
+              <p class="post-text-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam eos possimus accusantium dolorum unde? Necessitatibus officia nostrum placeat harum doloremque?               
+              </p>
+           </div> 
+           <div class="post-image">
+              <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="post-image">
+           </div>
+  
+          <!-- comments under a single post --> 
+           <div class="comments-holder">
+              <div class="comment">
+                  <div class="comment-user-image">
+                      <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="comment-user-image">
+                  </div>
+                  <div class="comment-text-container">
+                    <h4>commented Username</h4>   
+                    <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, ratione?</p>
+                  </div>
+  
+              </div>
+              <div class="comment">
+                  <div class="comment-user-image">
+                      <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="comment-user-image">
+                  </div>
+                  <div class="comment-text-container">
+                    <h4>commented Username</h4>   
+                    <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, ratione?</p>
+                  </div>
+  
+              </div>
+              <div class="comment">
+                  <div class="comment-user-image">
+                      <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="comment-user-image">
+                  </div>
+                  <div class="comment-text-container">
+                    <h4>commented Username</h4>   
+                    <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, ratione?</p>
+                  </div>
+  
+              </div>
+  
+  
+           </div>
+          <!-- new comment input field --> 
+           <div class="postComment-holder">
+              <div class="post-comment-input-field-holder">
+                  <input 
+                  type="text" 
+                  placeholder="post your comment" 
+                  class="postComment-input-field" 
+                  id="postComment-input-for-postId1"
+                  />
+              </div>
+              <div class="comment-btn-holder">
+                  <button id="comment-btn" class="postComment-btn">comment</button>
+              </div>
+           </div>
+  
+          </div> 
+          <!-- post -->
+        <div class="post">
+            <div class="post-header">
+              <div class="post-user-image">
+                  <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="post-user-image">
+              </div>
+              <div class="post-username-time">
+                  <p class="post-username">username</p>
+                  <div class="posted-time">
+                      <span>13</span>
+                      <span>hours ago</span>
+  
+                  </div>
+  
+              </div>
+            </div> 
+            
+           <div class="post-text">
+              <p class="post-text-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam eos possimus accusantium dolorum unde? Necessitatibus officia nostrum placeat harum doloremque?               
+              </p>
+           </div> 
+           <div class="post-image">
+              <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="post-image">
+           </div>
+  
+          <!-- comments under a single post --> 
+           <div class="comments-holder">
+              <div class="comment">
+                  <div class="comment-user-image">
+                      <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="comment-user-image">
+                  </div>
+                  <div class="comment-text-container">
+                    <h4>commented Username</h4>   
+                    <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, ratione?</p>
+                  </div>
+  
+              </div>
+              <div class="comment">
+                  <div class="comment-user-image">
+                      <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="comment-user-image">
+                  </div>
+                  <div class="comment-text-container">
+                    <h4>commented Username</h4>   
+                    <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, ratione?</p>
+                  </div>
+  
+              </div>
+              <div class="comment">
+                  <div class="comment-user-image">
+                      <img src="https://media.istockphoto.com/id/1488944909/photo/environment-concept-green-glass-globe-with-a-tree-in-the-forest-with-sunlight-sustainability.webp?b=1&s=170667a&w=0&k=20&c=f89zMjUr7FldJzgS0p8mJyuTxBWgvhv0kBQL7fcSnjs=" alt="comment-user-image">
+                  </div>
+                  <div class="comment-text-container">
+                    <h4>commented Username</h4>   
+                    <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, ratione?</p>
+                  </div>
+  
+              </div>
+  
+  
+           </div>
+          <!-- new comment input field --> 
+           <div class="postComment-holder">
+              <div class="post-comment-input-field-holder">
+                  <input 
+                  type="text" 
+                  placeholder="post your comment" 
+                  class="postComment-input-field" 
+                  id="postComment-input-for-postId1"
+                  />
+              </div>
+              <div class="comment-btn-holder">
+                  <button id="comment-btn" class="postComment-btn">comment</button>
+              </div>
+           </div>
+  
+          </div> 
+    </section>
+
+  <script src="./js/utils/calculateTimeDifference.js"></script>  
+    <script src="./fetchData.js"></script>
+</body>
+</html>

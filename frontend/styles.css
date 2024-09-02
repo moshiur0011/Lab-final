@@ -1,0 +1,53 @@
+*{
+    font-family: "Kanit", sans-serif;
+}
+
+.login-form{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h3 {
+    text-align: center;
+    color: olivedrab;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+input[type='text'], 
+input[type='password']{
+    padding: 10px;
+}
+
+
+.login-btn {
+    background-color: rgb(3, 171, 11);
+    color: white;
+    width: 12%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    margin: 0 auto;
+
+}
+
+.error {
+    color: red;
+}
+
+.error h3 {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
